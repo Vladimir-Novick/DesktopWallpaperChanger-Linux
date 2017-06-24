@@ -4,7 +4,7 @@
 #
 #                          https://www.linkedin.com/in/vladimirnovick
 #                      
-# Date: 24.06.2016
+# Date: 24.01.2015
 # Purpose: script for automatic changing wallpaper
 
 #
