@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/unlock_monitor               
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=unlock_monitor   
+Name=unlock_monitor   
+Comment[en_US]=unlock_monitor   
+Comment=unlock_monitor   
+
