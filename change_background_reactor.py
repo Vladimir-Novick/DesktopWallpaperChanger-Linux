@@ -17,9 +17,9 @@ def f():
    fileName = getFile(path);
    fullpash = "file://" + path + "/" + fileName;
    command = 'gsettings set org.gnome.desktop.background picture-uri "' + fullpash + '"';
-   os.system(command);    # do something here ...
+   os.system(command);   
    threading.Timer(600, f).start();
 
-# start calling f now and every 60 sec thereafter
+
 f()
   
