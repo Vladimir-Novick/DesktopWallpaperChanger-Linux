@@ -19,6 +19,10 @@
 import os
 import random
 import sys
+import pwd
+
+def get_username():
+    return pwd.getpwuid( os.getuid() )[ 0 ];
 
 def getFile(path):
 
@@ -26,7 +30,8 @@ def getFile(path):
   index = random.randrange(0, len(files));
   return files[index];
 
-path = "/home/vlad/Wallpapers"
+userName = get_username();
+path = "/home/"+ userName + "/Wallpapers";
 
 fileName = getFile(path);
 

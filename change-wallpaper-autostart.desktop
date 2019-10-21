@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
-Exec=/var/lib/vlad/vlad-change-wallpaper.py
+Exec=/home/vlad/mygithub/wallpaper-changer/change_background.py
+Icon=/home/vlad/mygithub/wallpaper-changer/change_background.png
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

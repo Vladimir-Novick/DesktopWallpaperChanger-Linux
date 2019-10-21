@@ -20,6 +20,10 @@
 import locale
 import os
 import re
+import pwd
+
+def get_username():
+    return pwd.getpwuid( os.getuid() )[ 0 ];
 
 try:  # try python 3 import
     from urllib.request import urlopen

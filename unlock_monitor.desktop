@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/usr/local/bin/unlock_monitor               
+Exec=/home/vlad/mygithub/wallpaper-changer/unlock_monitor               
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

@@ -2,6 +2,6 @@
 Version=1.0
 Type=Application
 Terminal=false
-Icon=/var/lib/vlad/change_background.png
-Exec=python3 /var/lib/vlad/change_background.py
+Icon=/home/vlad/mygithub/wallpaper-changer/change_background.png
+Exec=python3 /home/vlad/mygithub/wallpaper-changer/change_background.py
 Name=Change Backgrownd

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/vlad/mygithub/DesktopWallpaperChanger-Linux/change_background_reactor.py
+Exec=/home/vlad/mygithub/wallpaper-changer/change_background_reactor.py
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
