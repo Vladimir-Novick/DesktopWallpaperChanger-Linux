@@ -3,7 +3,7 @@ Personalize your desktop background (wallpaper) with a picture
 
 A small python script that will set your wallpaper to something random from , made for linux window managers, 
 
-[More details please look WIKI](https://github.com/Vladimir-Novick/DesktopWallpaperChanger-Linux/wiki)
+[More details please look WIKI](https://github.com/Vladimir-Novick/wallpaper-changer/wiki)
 
 ### Automatic change background after login
 
@@ -25,18 +25,19 @@ File name :
 		Comment[en_US]=
 		Comment=change background after login
 
+please change "/var/lib/vlad" to your current folder name.
 
 ### Automatic change background after unlock
 
 1 - You must create new file on a folder: ~/.config/autostart
-
+     
     File name : ~/.config/autostart/unlock_monitor.desktop
 
 
 		
 		[Desktop Entry]
 		  Type=Application
-		  Exec=/usr/local/bin/unlock_monitor
+		  Exec=/var/lib/vlad/unlock_monitor
 		  Hidden=false
 		  NoDisplay=false
 		  X-GNOME-Autostart-enabled=true
@@ -45,6 +46,7 @@ File name :
 		  Comment[en_US]=unlock_monitor
 		  Comment=unlock_monitor
 			
+			please change "/var/lib/vlad" to your current folder name.
 
 2 - Create new bash file
 
@@ -62,11 +64,11 @@ File name :
 3  - set files as executable:
 
 			
-		sudo chmode a+x /usr/local/bin/unlock_monitor
+		sudo chmode a+x /var/lib/vlad/bin/unlock_monitor
 		sudo chmode a+x /var/lib/vlad/change_background.py
 			
 
-
+please change "/var/lib/vlad" to your current folder name.
 
 
 
