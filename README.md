@@ -5,6 +5,13 @@ A small python script that will set your wallpaper to something random from , ma
 
 [More details please look WIKI](https://github.com/Vladimir-Novick/wallpaper-changer/wiki)
 
+### Easy installation
+
+1) dounload github repository into storage directory on the disk
+2) run batch file "install" or "install.py"
+
+       enjoy
+
 ### Automatic change background after login
 
 you must create new file on a folder : ~/.config/autostart
@@ -64,8 +71,8 @@ please change "/var/lib/vlad" to your current folder name.
 3  - set files as executable:
 
 			
-		sudo chmod a+x /var/lib/vlad/bin/unlock_monitor
-		sudo chmod a+x /var/lib/vlad/change_background.py
+		 chmod a+x /var/lib/vlad/bin/unlock_monitor
+		 chmod a+x /var/lib/vlad/change_background.py
 			
 
 please change "/var/lib/vlad" to your current folder name.
