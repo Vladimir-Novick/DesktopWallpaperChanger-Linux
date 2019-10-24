@@ -10,7 +10,7 @@ A small python script that will set your wallpaper to something random from , ma
 1) dounload github repository into storage directory on the disk
 2) run batch file "install" or "install.py"
 
-       enjoy
+enjoy
 
 ### Automatic change background after login
 
