@@ -50,7 +50,7 @@ please change "/var/lib/vlad" to your current folder name.
 
 2 - Create new bash file
 
-    file: /usr/local/bin/unlock_monitor
+    file: /var/lib/vlad/unlock_monitor
 
 		#!/bin/bash
 		dbus-monitor --session "type=signal,interface=com.canonical.Unity.Session" --pr$
@@ -64,8 +64,8 @@ please change "/var/lib/vlad" to your current folder name.
 3  - set files as executable:
 
 			
-		sudo chmode a+x /var/lib/vlad/bin/unlock_monitor
-		sudo chmode a+x /var/lib/vlad/change_background.py
+		sudo chmod a+x /var/lib/vlad/bin/unlock_monitor
+		sudo chmod a+x /var/lib/vlad/change_background.py
 			
 
 please change "/var/lib/vlad" to your current folder name.
