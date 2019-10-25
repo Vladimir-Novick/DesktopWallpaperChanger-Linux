@@ -7,8 +7,11 @@ A small python script that will set your wallpaper to something random from , ma
 
 ### Easy installation
 
-1) dounload github repository into storage directory on the disk
-2) run batch file "install" or "install.py"
+Install.py is a simple python script that installs the wallpapper-changer.
+All images are stored in the "Home/Wallpappes" directory
+
+1) Make sure the script is executable by running : chmod +x install.py
+2) Run :  ./install.py 
 
 enjoy
 
