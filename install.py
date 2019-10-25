@@ -38,7 +38,7 @@ command= 'mkdir -p ' + pathAutoStart ;
 os.system(command);
 
 
-currendDir =  os.path.dirname(__file__);
+currendDir =  os.path.dirname(os.path.realpath(__file__));
 
 command = "chmod +x " + currendDir + "/change_background.py";
 os.system(command);
