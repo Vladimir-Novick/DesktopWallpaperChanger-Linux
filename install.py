@@ -16,12 +16,29 @@
 # THE SOFTWARE.
 
 import os
-import random
 import sys
-import pwd
 import pathlib
 import stat
-import time
+import pwd
+
+def get_umask():
+    umask = os.umask(0)
+    os.umask(umask)
+    return umask
+
+def chmod_x(path):
+    os.chmod(
+        path,
+        os.stat(path).st_mode |
+        (
+            (
+                stat.S_IXUSR |
+                stat.S_IXGRP |
+                stat.S_IXOTH
+            )
+            & ~get_umask()
+        )
+    )
 
 
 
@@ -72,28 +89,28 @@ File.flush()
 File.close()
 
 
-mychangeMyChange = "/home/"+ userName + "/Desktop/mychange-wallpaper.desktop"
+fileNameDesktopFile = "/home/"+ userName + "/Desktop/mychange-wallpaper.desktop"
 
-if os.path.exists(mychangeMyChange) :
-    command = 'sudo rm ' + mychangeMyChange
+if os.path.exists(fileNameDesktopFile) :
+    command = 'sudo rm ' + fileNameDesktopFile
     os.system(command)
 
 
-File = open(mychangeMyChange,'w')
-File.write("[Desktop Entry]\n")
-File.write("Type=Application\n")
-line = "Exec=" + currendDir + "/change_background.py\n"
-File.write(line)
-line = "Icon=" + currendDir + "/change_background_icon.png\n"
-File.write(line)
-File.write("Hidden=false\n")
-File.write("NoDisplay=false\n")
-File.write("Name[en_US]=change background\n")
-File.write("Name=change background \n")
-File.write("Comment[en_US]=change background\n")
-File.write("Comment=\n")
-File.flush()
-File.close()
+with open(fileNameDesktopFile, 'w') as File:
+    File.write("[Desktop Entry]\n")
+    File.write("Type=Application\n")
+    line = "Exec=" + currendDir + "/change_background.py\n"
+    File.write(line)
+    line = "Icon=" + currendDir + "/change_background_icon.png\n"
+    File.write(line)
+    File.write("Hidden=false\n")
+    File.write("NoDisplay=false\n")
+    File.write("Name[en_US]=change background\n")
+    File.write("Name=change background \n")
+    File.write("Comment[en_US]=change background\n")
+    File.write("Comment=\n")
+    File.close()
+    File.flush
 
 
 
@@ -144,22 +161,15 @@ File.flush()
 File.close()
 
 
+chmod_x(fileNameBackground)
 
-time.sleep(5)
+chmod_x(fileNameAutostart)
 
-os.chmod(fileNameBackground, stat.S_IRWXU| stat.S_IXGRP)
+chmod_x(fileNameDesktopFile)
 
-os.chmod(fileNameAutostart, stat.S_IRWXU | stat.S_IXGRP)
+chmod_x(fileNameMyUnlock_monitor )
 
-os.stat(mychangeMyChange)
-
-os.chmod(mychangeMyChange, stat.S_IRWXU | stat.S_IXGRP)
-
-
-os.chmod(fileNameMyUnlock_monitor, stat.S_IRWXU | stat.S_IXGRP )
-
-
-os.chmod(fileNameWallpaper_unlock_manitor_desktop, stat.S_IRWXU | stat.S_IXGRP )
+chmod_x(fileNameWallpaper_unlock_manitor_desktop )
 
 
 
@@ -167,7 +177,7 @@ command = 'gio set ' + fileNameWallpaper_unlock_manitor_desktop + ' "metadata::t
 os.system(command)
 
 
-command = 'gio set ' + mychangeMyChange + ' "metadata::trusted" yes'
+command = 'gio set ' + fileNameDesktopFile + ' "metadata::trusted" yes'
 os.system(command)
 
 
