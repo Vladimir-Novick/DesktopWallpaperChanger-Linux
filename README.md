@@ -1,11 +1,11 @@
 # Set up automatically changing wallpaper on linux
 Personalize your desktop background (wallpaper) with a picture
 
-A small python script that will set your wallpaper to something random from , made for linux window managers, 
+A small python script that will set your wallpaper to something random pictures from your wallpapers catalog
 
 [More details please look WIKI](https://github.com/Vladimir-Novick/wallpaper-changer/wiki)
 
-### Easy installation
+### Automatic installation
 
 Install.py is a simple python script that installs the wallpapper-changer.
 All images are stored in the "Home/Wallpappes" directory
@@ -14,6 +14,8 @@ All images are stored in the "Home/Wallpappes" directory
 2) Run :  ./install.py 
 
 enjoy
+
+## Manual installation
 
 ### Automatic change background after login
 
