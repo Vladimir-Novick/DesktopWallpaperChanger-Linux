@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dbus-monitor --session "type=signal,interface=com.canonical.Unity.Session" --profile \
+| while read dbusmsg do
+    if [[ "$dbusmsg" =~ Unlocked$ || "$dbusmsg" =~ NameAcquired$ ]]  then
+        sleep 5
+         /home/vlad/mygithub/wallpaper-changer/source/change_background.py
+    fi
+done
