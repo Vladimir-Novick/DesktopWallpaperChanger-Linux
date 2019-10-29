@@ -71,22 +71,22 @@ if os.path.exists(fileNameAutostart) :
     os.system(command)
 
 
-File = open(fileNameAutostart,'w')
-File.write("[Desktop Entry]\n")
-File.write("Type=Application\n")
-line = "Exec=" + currendDir + "/change_background.py\n"
-File.write(line)
-line = "Icon=" + currendDir + "/change_background_icon.png\n"
-File.write(line)
-File.write("Hidden=false\n")
-File.write("NoDisplay=false\n")
-File.write("X-GNOME-Autostart-enabled=true\n")
-File.write("Name[en_US]=change background\n")
-File.write("Name=change background - system start \n")
-File.write("Comment[en_US]=change background - system start\n")
-File.write("Comment=\n")
-File.flush()
-File.close()
+with open(fileNameAutostart,'w') as File :
+    File.write("[Desktop Entry]\n")
+    File.write("Type=Application\n")
+    line = "Exec=" + currendDir + "/change_background.py\n"
+    File.write(line)
+    line = "Icon=" + currendDir + "/change_background_icon.png\n"
+    File.write(line)
+    File.write("Hidden=false\n")
+    File.write("NoDisplay=false\n")
+    File.write("X-GNOME-Autostart-enabled=true\n")
+    File.write("Name[en_US]=change background\n")
+    File.write("Name=change background - system start \n")
+    File.write("Comment[en_US]=change background - system start\n")
+    File.write("Comment=\n")
+    File.flush()
+    File.close()
 
 
 fileNameDesktopFile = "/home/"+ userName + "/Desktop/mychange-wallpaper.desktop"
@@ -114,51 +114,34 @@ with open(fileNameDesktopFile, 'w') as File:
 
 
 
-fileNameMyUnlock_monitor =  currendDir + "/myUnlock_monitor"
+batchUnlock_monitorSleep =  pathAutoStart + "/myUnlock_monitor"
 
-if os.path.exists(fileNameMyUnlock_monitor) :
-    command = 'sudo rm ' + fileNameMyUnlock_monitor
+if os.path.exists(batchUnlock_monitorSleep) :
+    command = 'sudo rm ' + batchUnlock_monitorSleep
     os.system(command)
 
 
-File = open(fileNameMyUnlock_monitor,'w')
-
-File.write('#!/bin/bash\n')
-File.write('\n')
-File.write('dbus-monitor --session "type=signal,interface=com.canonical.Unity.Session" --profile \\\n')
-File.write('| while read dbusmsg do\n')
-File.write('    if [[ "$dbusmsg" =~ Unlocked$ || "$dbusmsg" =~ NameAcquired$ ]]  then\n')
-File.write('        sleep 5\n')
-File.write('         ' + currendDir + '/change_background.py\n')
-File.write('    fi\n')
-File.write('done\n')
-File.flush()
-File.close()
-
-
-
-
-fileNameWallpaper_unlock_manitor_desktop = pathAutoStart + "/mychange-wallpaper_unlock_manitor.desktop"
-
-if os.path.exists(fileNameWallpaper_unlock_manitor_desktop) :
-    command = 'sudo rm ' + fileNameWallpaper_unlock_manitor_desktop
-    os.system(command)
-
-File = open(fileNameWallpaper_unlock_manitor_desktop,'w')
-File.write("[Desktop Entry]\n")
-File.write("Type=Application\n")
-line = "Exec="+  currendDir + "/myUnlock_monitor\n"
-File.write(line)
-line = "Icon=" + currendDir + "/change_background_icon.png\n"
-File.write(line)
-File.write("Hidden=false\n")
-File.write("NoDisplay=false\n")
-File.write("Name[en_US]=change background unlock monitor\n")
-File.write("Name=change background unlock monitor\n")
-File.write("Comment[en_US]=change background unlock monitor\n")
-File.write("Comment=\n")
-File.flush()
-File.close()
+with open(batchUnlock_monitorSleep,'w') as File:
+    File.write('#!/bin/bash\n')
+    File.write('\n')
+    File.write("    dbus-monitor --session \"type='signal',interface='org.gnome.ScreenSaver'\" | \\\n")
+    File.write('(\n')
+    File.write('  locked=0\n')
+    File.write('  while true; do\n')
+    File.write('    read X\n')
+    File.write('        if echo "$X" | grep "member=ActiveChanged" &> /dev/null; then\n')
+    File.write('            if [ $locked -eq 0 ]; then\n')
+    File.write('              locked=1\n')
+    File.write('            elif [ $locked -eq 1 ]; then\n')
+    File.write('         sleep 5\n')
+    File.write('        '+ currendDir + '/change_background.py\n')
+    File.write('               locked=0\n')
+    File.write('            fi\n')
+    File.write('         fi\n')
+    File.write('  done\n')
+    File.write(')\n')
+    File.flush()
+    File.close()
 
 
 chmod_x(fileNameBackground)
@@ -167,21 +150,14 @@ chmod_x(fileNameAutostart)
 
 chmod_x(fileNameDesktopFile)
 
-chmod_x(fileNameMyUnlock_monitor )
-
-chmod_x(fileNameWallpaper_unlock_manitor_desktop )
-
-
-
-command = 'gio set ' + fileNameWallpaper_unlock_manitor_desktop + ' "metadata::trusted" yes'
-os.system(command)
+chmod_x(batchUnlock_monitorSleep )
 
 
 command = 'gio set ' + fileNameDesktopFile + ' "metadata::trusted" yes'
 os.system(command)
 
 
-command = 'gio set ' + fileNameMyUnlock_monitor + ' "metadata::trusted" yes'
+command = 'gio set ' + batchUnlock_monitorSleep + ' "metadata::trusted" yes'
 os.system(command)
 
 command = 'gio set ' + fileNameAutostart + ' "metadata::trusted" yes'

@@ -41,43 +41,38 @@ please change "/var/lib/vlad" to your current folder name.
 
 ### Automatic change background after unlock
 
-1 - You must create new file on a folder: ~/.config/autostart
+1 - Create new file on a folder: ~/.config/autostart
      
-    File name : ~/.config/autostart/unlock_monitor.desktop
 
+    file: ~/.config/autostart/unlock_monitor
 
-		
-		[Desktop Entry]
-		  Type=Application
-		  Exec=/var/lib/vlad/unlock_monitor
-		  Hidden=false
-		  NoDisplay=false
-		  X-GNOME-Autostart-enabled=true
-		  Name[en_US]=unlock_monitor
-		  Name=unlock_monitor
-		  Comment[en_US]=unlock_monitor
-		  Comment=unlock_monitor
-			
-			please change "/var/lib/vlad" to your current folder name.
+        #!/bin/bash
 
-2 - Create new bash file
+        dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | \
+        (
+          locked=0
+          while true; do
+            read X
+                echo "$X"
+                if echo "$X" | grep "member=ActiveChanged" &> /dev/null; then
+                    if [ $locked -eq 0 ]; then
+                      echo "************* Screen locked"
+                      locked=1
+                    elif [ $locked -eq 1 ]; then
+                        echo "********* Screen unlocked"
+                sleep 5
+                /home/vlad/mygithub/wallpaper-changer/source/change_background.py
+                      locked=0
+                    fi
+                fi
 
-    file: /var/lib/vlad/unlock_monitor
+          done
+        )
 
-		#!/bin/bash
-		dbus-monitor --session "type=signal,interface=com.canonical.Unity.Session" --pr$
-		| while read dbusmsg; do
-  		  if [[ "$dbusmsg" =~ Unlocked$ || "$dbusmsg" =~ NameAcquired$ ]] ; then
-     		   sleep 5
-     		    /var/lib/vlad/change_background.py
-     		   # ...
-  		  fi
-		done
-3  - set files as executable:
+2  - set files as executable:
 
 			
-		 chmod a+x /var/lib/vlad/bin/unlock_monitor
-		 chmod a+x /var/lib/vlad/change_background.py
+		 chmod a+x ~/.config/autostart//unlock_monitor
 			
 
 please change "/var/lib/vlad" to your current folder name.

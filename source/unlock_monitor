@@ -1,10 +1,22 @@
 #!/bin/bash
 
-dbus-monitor --session "type=signal,interface=com.canonical.Unity.Session" --profile \
-| while read dbusmsg; do
-    if [[ "$dbusmsg" =~ Unlocked$ || "$dbusmsg" =~ NameAcquired$ ]] ; then
-        sleep 5
-         /home/vlad/mygithub/wallpaper-changer/change_background.py
-        # ...
-    fi
-done
+dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | \
+(
+  locked=0
+  while true; do
+    read X
+        echo "$X"
+        if echo "$X" | grep "member=ActiveChanged" &> /dev/null; then
+            if [ $locked -eq 0 ]; then
+              echo "************* Screen locked"
+              locked=1
+            elif [ $locked -eq 1 ]; then
+                 echo "********* Screen unlocked"
+         sleep 5
+        /home/vlad/mygithub/wallpaper-changer/source/change_background.py
+               locked=0
+            fi
+         fi
+
+  done
+)
