@@ -51,7 +51,7 @@ path = "/home/"+ userName + "/Wallpapers"
 command = 'mkdir -p ' + path 
 os.system(command)
 
-command = 'cp -a ./Wallpapers/. ' + path + '/'
+command = 'cp -a ./source/Wallpapers/. ' + path + '/'
 os.system(command)
 
 pathAutoStart = "/home/"+ userName + "/.config/autostart"
@@ -61,7 +61,7 @@ os.system(command)
 
 currendDir =  os.path.dirname(os.path.realpath(__file__))
 
-fileNameBackground =  currendDir + "/change_background.py"
+fileNameBackground =  currendDir + "/source/change_background.py"
 
 
 fileNameAutostart = pathAutoStart + "/mychange-wallpaper-autostart.desktop"
@@ -74,9 +74,9 @@ if os.path.exists(fileNameAutostart) :
 with open(fileNameAutostart,'w') as File :
     File.write("[Desktop Entry]\n")
     File.write("Type=Application\n")
-    line = "Exec=" + currendDir + "/change_background.py\n"
+    line = "Exec=" + currendDir + "/source/change_background.py\n"
     File.write(line)
-    line = "Icon=" + currendDir + "/change_background_icon.png\n"
+    line = "Icon=" + currendDir + "/source/change_background_icon.png\n"
     File.write(line)
     File.write("Hidden=false\n")
     File.write("NoDisplay=false\n")
@@ -99,9 +99,9 @@ if os.path.exists(fileNameDesktopFile) :
 with open(fileNameDesktopFile, 'w') as File:
     File.write("[Desktop Entry]\n")
     File.write("Type=Application\n")
-    line = "Exec=" + currendDir + "/change_background.py\n"
+    line = "Exec=" + currendDir + "/source/change_background.py\n"
     File.write(line)
-    line = "Icon=" + currendDir + "/change_background_icon.png\n"
+    line = "Icon=" + currendDir + "/source/change_background_icon.png\n"
     File.write(line)
     File.write("Hidden=false\n")
     File.write("NoDisplay=false\n")
@@ -134,7 +134,7 @@ with open(batchUnlock_monitorSleep,'w') as File:
     File.write('              locked=1\n')
     File.write('            elif [ $locked -eq 1 ]; then\n')
     File.write('         sleep 5\n')
-    File.write('        '+ currendDir + '/change_background.py\n')
+    File.write('        '+ currendDir + '/source/change_background.py\n')
     File.write('               locked=0\n')
     File.write('            fi\n')
     File.write('         fi\n')
