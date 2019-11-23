@@ -40,6 +40,14 @@ fullpash = "file://" + path + "/" + fileName;
 command = 'gsettings set org.gnome.desktop.background picture-uri "' + fullpash + '"';
 os.system(command);
 
+userName = get_username();
+path = "/home/"+ userName + "/Wallpapers";
+
+fileName = getFile(path);
+
+fullpash = "file://" + path + "/" + fileName;
+command = 'gsettings set org.gnome.desktop.screensaver picture-uri "' + fullpash + '"';
+os.system(command);
 
         
 
