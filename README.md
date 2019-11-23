@@ -11,7 +11,7 @@ All images are stored in the "Home/Wallpappes" directory
 
 1) Make sure the script is executable by running : chmod +x install.py
    or see istall.py properies from file browser:
-   ![file browser properties](/img/verify_exwc.png)
+   ![file browser properties](/img/verify_exec.png)
 2) Run :  ./install.py 
 
 enjoy
