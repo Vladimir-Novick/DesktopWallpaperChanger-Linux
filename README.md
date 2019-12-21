@@ -10,9 +10,15 @@ Install.py is a simple python script that installs the wallpapper-changer.
 All images are stored in the "Home/Wallpappes" directory
 
 1) Make sure the script is executable by running : chmod +x install.py
-   or see istall.py properies from file browser:
-   ![file browser properties](/img/verify_exec.png)
+  or check "Allow executing file as program"
+   ![check permissions](https://github.com/Vladimir-Novick/wallpaper-changer/img/permissions.png)
+
 2) Run :  ./install.py 
+  or
+ - select istall.py from file browser and "Open With Outher Application" :
+ ![run installer](https://github.com/Vladimir-Novick/wallpaper-changer/img/run_install.png)
+
+3) try run istall.py again
 
 enjoy
 
