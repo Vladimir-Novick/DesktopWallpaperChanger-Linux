@@ -9,13 +9,13 @@ A small python script that will set your desktop wallpaper and lock screen backg
 Install.py is a simple python script that installs the wallpapper-changer.
 All images are stored in the "Home/Wallpappes" directory
 
-1) Make sure the script is executable by running : chmod +x install.py
-  or check "Allow executing file as program"
+1) Once it’s downloaded, open your file manager and go to the download destination folder. Then right-click the "install.py" and select properties in the context menu.
+Next, select the Permissions tab and tick on Allow executing file as program.
    ![check permissions](/img/permissions.png)
+ 
 
-2) Run :  ./install.py 
-  or
- - select istall.py from file browser and "Open With Outher Application" :
+2)Close the "install.py" Properties window, then right-click the "install.py" and   
+  select "Open With Outher Application" in the context menu.
  ![run installer](/img/run_install.png)
 
 3) try run install.py again
