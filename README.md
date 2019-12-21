@@ -20,7 +20,6 @@ All images are stored in the "Home/Wallpappes" directory
 
 3) try run install.py again
 
-enjoy
 
 ## Manual installation
 
