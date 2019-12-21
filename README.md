@@ -11,12 +11,12 @@ All images are stored in the "Home/Wallpappes" directory
 
 1) Make sure the script is executable by running : chmod +x install.py
   or check "Allow executing file as program"
-   ![check permissions](https://github.com/Vladimir-Novick/wallpaper-changer/img/permissions.png)
+   ![check permissions](/img/permissions.png)
 
 2) Run :  ./install.py 
   or
  - select istall.py from file browser and "Open With Outher Application" :
- ![run installer](https://github.com/Vladimir-Novick/wallpaper-changer/img/run_install.png)
+ ![run installer](/img/run_install.png)
 
 3) try run istall.py again
 
