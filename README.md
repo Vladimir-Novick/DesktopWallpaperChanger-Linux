@@ -18,7 +18,7 @@ All images are stored in the "Home/Wallpappes" directory
  - select istall.py from file browser and "Open With Outher Application" :
  ![run installer](/img/run_install.png)
 
-3) try run istall.py again
+3) try run install.py again
 
 enjoy
 
