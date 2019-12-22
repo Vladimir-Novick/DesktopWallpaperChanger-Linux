@@ -13,9 +13,12 @@ All images are stored in the "Home/Wallpappes" directory
 Then right-click the "install.py" and select properties in the context menu.
 Next, select the Permissions tab and tick on Allow executing file as program.  
    ![check permissions](/img/permissions.png)
+and close the "install.py" Properties window
  
 
-2)Close the "install.py" Properties window, then right-click the "install.py" and   
+2) Open up the terminal, and type ./install.py   
+ OR   
+ right-click the "install.py" and   
   select "Open With Outher Application" in the context menu.
  ![run installer](/img/run_install.png)
 
