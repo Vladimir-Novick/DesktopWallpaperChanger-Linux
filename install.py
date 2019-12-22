@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 # Author: Vladimir Novick , <vlad.novick@gmail.com>
 #
@@ -17,7 +17,7 @@
 
 import os
 import sys
-import pathlib
+import os.path
 import stat
 import pwd
 
@@ -67,7 +67,7 @@ fileNameBackground =  currendDir + "/source/change_background.py"
 fileNameAutostart = pathAutoStart + "/mychange-wallpaper-autostart.desktop"
 
 if os.path.exists(fileNameAutostart) :
-    command = 'sudo rm ' + fileNameAutostart
+    command = 'rm ' + fileNameAutostart
     os.system(command)
 
 
@@ -92,7 +92,7 @@ with open(fileNameAutostart,'w') as File :
 fileNameDesktopFile = "/home/"+ userName + "/Desktop/mychange-wallpaper.desktop"
 
 if os.path.exists(fileNameDesktopFile) :
-    command = 'sudo rm ' + fileNameDesktopFile
+    command = 'rm ' + fileNameDesktopFile
     os.system(command)
 
 
@@ -117,7 +117,7 @@ with open(fileNameDesktopFile, 'w') as File:
 batchUnlock_monitorSleep =  pathAutoStart + "/myUnlock_monitor"
 
 if os.path.exists(batchUnlock_monitorSleep) :
-    command = 'sudo rm ' + batchUnlock_monitorSleep
+    command = 'rm ' + batchUnlock_monitorSleep
     os.system(command)
 
 
