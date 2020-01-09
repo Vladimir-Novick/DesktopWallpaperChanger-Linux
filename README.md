@@ -4,7 +4,16 @@ Personalize your desktop background (wallpaper) with a picture
 A small python script that will set your desktop wallpaper and lock screen background to something random pictures from your wallpapers catalog
 
 
-### Automatic installation
+## Install using Git
+
+If you are a git user, you can install the theme and keep up to date by cloning the repo:
+
+		git clone https://github.com/Vladimir-Novick/wallpaper-changer
+
+If you are a not git user:
+  Download using the GitHub .zip download option and unzip them.
+
+## Activating: 
 
 Install.py is a simple python script that installs the wallpapper-changer.
 All images are stored in the "Home/Wallpappes" directory
@@ -12,7 +21,9 @@ All images are stored in the "Home/Wallpappes" directory
 1) Once it’s downloaded, open your file manager and go to the download destination folder.    
 Then right-click the "install.py" and select properties in the context menu.
 Next, select the Permissions tab and tick on Allow executing file as program.  
+
    ![check permissions](/img/permissions.png)
+   
 and close the "install.py" Properties window
  
 
@@ -20,17 +31,19 @@ and close the "install.py" Properties window
  OR   
  right-click the "install.py" and   
   select "Open With Outher Application" in the context menu.
+  
  ![run installer](/img/run_install.png)
 
 3) try run install.py again
 
 4) For Ubuntu 19.04, 19.10 :  
  Press mouse right-click on the "mychange-wallpaper.desktop" and select "Allow Launching" in the context menu.
+ 
 ![run installer](/img/allow_launching.png)
 
 
 
-## Monual installation
+## Install manually
 
 ### Automatic change background after login
 
