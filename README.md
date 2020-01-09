@@ -11,7 +11,8 @@ If you are a git user, you can install the theme and keep up to date by cloning 
 		git clone https://github.com/Vladimir-Novick/wallpaper-changer
 
 If you are a not git user:
-  Download using the GitHub .zip download option and unzip them.
+
+  Download using the [GitHub .zip](https://github.com/Vladimir-Novick/wallpaper-changer/archive/master.zip) download option and unzip them.
 
 ## Activating: 
 
